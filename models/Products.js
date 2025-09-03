@@ -1,7 +1,8 @@
 class Products{
-    constructor(parent,Products){
+    constructor(parent,Products,cart){
       this.parent=parent
       this.Products=Products
+      this.cart=cart
       this.parent.addEventListener("click",this)
     }
 
@@ -73,7 +74,9 @@ class Products{
         }
 
         addToCart(id){
-           console.log(id)
+            const product=this.Products.find((i)=>i.id===+id)
+           this.cart.products.push(product)
+           console.log(this.cart)
         }
 }
 export default Products
