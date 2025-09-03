@@ -2,6 +2,7 @@ class Products{
     constructor(parent,Products){
       this.parent=parent
       this.Products=Products
+      
     }
 
 
@@ -54,7 +55,7 @@ class Products{
         productInfo(data){
             const {id,name,price,button}=data
             const infoJsx=`
-            <div>
+            <div id="product-info">
             <h3>${name}</h3>
              <div>
              <span>${price}</span>
