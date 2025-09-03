@@ -13,28 +13,56 @@ class Products{
 
     createCard(data){
         const cardEle=document.createElement("div")
-        const img=document.createElement("img")
-        img.src=data.image
-        img.alt=data.src
+  
+         const imgEle=this.productImg(data)
+ 
 
-        cardEle.appendChild(img)
+         const infoEle=this.productInfo(data)
 
-        const info=document.createElement("div")
-        const productName=document.createElement("h3")
-        const control=document.createElement("div")
-        const price=document.createElement("span")
-        const button=document.createElement("button")
+           
+        cardEle.innerHTML=imgEle
+         cardEle.innerHTML+=infoEle
 
-        productName.innerText=data.name;
-        price.innerText=data.price
-        button.innerText="+"
+        // const info=document.createElement("div")
+        // const productName=document.createElement("h3")
+        // const control=document.createElement("div")
+        // const price=document.createElement("span")
+        // const button=document.createElement("button")
 
-        control.append(price,button)
-        info.append(productName,control)
+        // productName.innerText=data.name;
+        // price.innerText=data.price
+        // button.innerText="+"
 
-        cardEle.appendChild(info)
-        
+        // control.append(price,button)
+        // info.append(productName,control)
+
+        // cardEle.appendChild(info)
+
         this.parent.appendChild(cardEle)
+
+  
     }
+        productImg(data){
+            const {image,alt}=data
+        const imgJsx=`
+        <img src=${image} alt=${alt}/>
+
+        `
+        return imgJsx
+        }
+
+        productInfo(data){
+            const {id,name,price,button}=data
+            const infoJsx=`
+            <div>
+            <h3>${name}</h3>
+             <div>
+             <span>${price}</span>
+             <button data-id=${id}>+</button>
+             </div>
+            </div>
+            `
+            return infoJsx
+        }
 }
 export default Products
