@@ -1,14 +1,14 @@
 class Products{
-    constructor(parent,Products,cart){
+    constructor(parent,product,cart){
       this.parent=parent
-      this.Products=Products
+      this.products=product
       this.cart=cart
       this.parent.addEventListener("click",this)
     }
 
 
     showProducts(){
-        this.Products.forEach(product=> {
+        this.products.forEach(product=> {
            this.createCard(product)
         });
     }
@@ -54,7 +54,7 @@ class Products{
         }
 
         productInfo(data){
-            const {id,name,price,button}=data
+            const {id,name,price}=data
             const infoJsx=`
             <div id="product-info">
             <h3>${name}</h3>
@@ -74,7 +74,7 @@ class Products{
         }
 
         addToCart(id){
-            const product=this.Products.find((i)=>i.id===+id)
+            const product=this.products.find((i)=>i.id===+id)
            this.cart.products.push(product)
            console.log(this.cart)
            this.cart.showProducts()
