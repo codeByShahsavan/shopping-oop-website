@@ -77,6 +77,7 @@ class Products{
             const product=this.Products.find((i)=>i.id===+id)
            this.cart.products.push(product)
            console.log(this.cart)
+           this.cart.showProducts()
         }
 }
 export default Products
