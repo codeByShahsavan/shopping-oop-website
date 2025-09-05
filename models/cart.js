@@ -13,6 +13,7 @@ class Cart{
         const qty=this.products.filter((p)=>p.id===product.id).length
      this.createCard(product,qty)
      });
+     this.calculateTotalPrice()
     }
     createCard(data,qty){
        const cardEle=document.createElement("div")
@@ -103,6 +104,9 @@ class Cart{
         this.showProducts()
     }
 
-
+    calculateTotalPrice(){
+         const total=this.products.reduce((acc,cur)=>acc+=cur.price,0)
+         this.price.innerHTML="$"+total
+    }
 }
 export default Cart
